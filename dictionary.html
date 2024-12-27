@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Словарь Minecraft</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+     <div class="site-container">
+          <div id="auth-form" class="auth-form">
+            <div class="auth-content">
+                <h2>Авторизация</h2>
+                <form id="login-form" novalidate>
+                    <label for="username">Логин (от 4 до 10 символов, только русские буквы и цифры):</label>
+                    <input type="text" id="username-login" name="username" required />
+                    <p id="username-error-login" style="color: red;"></p>
+
+                    <label for="dob">Дата рождения (не раньше 1950 года):</label>
+                    <input type="date" id="dob-login" name="dob" required />
+                    <p id="dob-error-login" style="color: red;"></p>
+
+                    <label for="gender">Пол:</label>
+                    <select id="gender-login" name="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                    <p id="gender-error-login" style="color: red;"></p>
+
+                    <button type="submit">Войти</button>
+                      <p id="form-error-login" style="color: red;"></p>
+                </form>
+                 <button id="show-register-btn">Регистрация</button>
+            </div>
+        </div>
+         <div id="register-form" class="register-form" style="display: none;">
+          <div class="auth-content">
+                <h2>Регистрация</h2>
+                <form id="register-new-form" novalidate>
+                    <label for="username">Логин (от 4 до 10 символов, только русские буквы и цифры):</label>
+                    <input type="text" id="username" name="username" required />
+                    <p id="username-error" style="color: red;"></p>
+
+                    <label for="dob">Дата рождения (не раньше 1950 года):</label>
+                    <input type="date" id="dob" name="dob" required />
+                    <p id="dob-error" style="color: red;"></p>
+
+                    <label for="gender">Пол:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                    <p id="gender-error" style="color: red;"></p>
+
+                    <button type="submit">Зарегистрироваться</button>
+                      <p id="form-error" style="color: red;"></p>
+                </form>
+            </div>
+       </div>
+        <div id="content" style="display: none;">
+            <header>
+                 <img src="img/2f4faf60efdbbb3977128fb43ea44986.jpg" alt="Логотип Крипера" class="site-logo">
+                   <div class="header-text">
+                    <h1>Словарь Minecraft</h1>
+                     <p id="welcome-message" style="display: none; font-size: 14px; margin-top: 0px">Привет, <span id="user-name-display"></span>!</p>
+                </div>
+                <div class="nav-background">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="dictionary.html" class="active">Словарь</a></li>
+                            <li><a href="description.html">Описание</a></li>
+                            <li><a href="test.html">Тест</a></li>
+                            <li><a href="profile.html">Личный кабинет</a></li>
+                            <li><a href="gallery.html">Галерея</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                 <div id="logout-btn" style="display: none;">
+                    <button onclick="logout()">Выход</button>
+                </div>
+            </header>
+            <main>
+                 <div class="dictionary-container">
+                    <input type="text" id="search-input" placeholder="Поиск по словарю">
+                     <ul id="dictionary-list">
+                       <li data-description="Моб-скелет, вооруженный луком.">Скелет</li>
+                       <li data-description="Зеленый взрывающийся моб.">Крипер</li>
+                       <li data-description="Редкий враждебный моб, появляющийся в пустыне.">Хаск</li>
+                       <li data-description="Моб, который атакует группами.">Зомби</li>
+                       <li data-description="Черный моб с фиолетовыми глазами, который телепортируется.">Эндермен</li>
+                       <li data-description="Инструмент для добычи камня.">Кирка</li>
+                      <li data-description="Материал для создания инструментов и оружия.">Железо</li>
+                       <li data-description="Материал для создания инструментов и брони.">Алмазы</li>
+                       <li data-description="Место, куда попадают после смерти.">Ад</li>
+                       <li data-description="Моб-житель деревни.">Житель</li>
+                    </ul>
+                    <div id="description-area"></div>
+                </div>
+            </main>
+             <footer>
+                <div class="footer-content">
+                    <div class="contact-info">
+                         <h3>Контактные данные</h3>
+                         <p>Телефон: <a href="#">+7 (000) 000-00-00</a></p>
+                        <div class="social-links">
+                            <a href="#" target="_blank">ВКонтакте</a>
+                           <a href="#" target="_blank">Telegram</a>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                      <p>&copy; 2024 Сайт Minecraft</p>
+                   </div>
+               </div>
+            </footer>
+        </div>
+    </div>
+    <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const dictionaryList = document.getElementById('dictionary-list');
+            const descriptionArea = document.getElementById('description-area');
+            const listItems = dictionaryList.querySelectorAll('li');
+
+         function filterDictionary() {
+              const searchTerm = searchInput.value.toLowerCase();
+                listItems.forEach(item => {
+                     const text = item.textContent.toLowerCase();
+                     if (text.includes(searchTerm)) {
+                       item.style.display = '';
+                    } else {
+                       item.style.display = 'none';
+                    }
+                });
+            }
+
+            function showDescription(event) {
+                const selectedItem = event.target;
+               const description = selectedItem.getAttribute('data-description');
+                 descriptionArea.textContent = description || 'Описание не найдено';
+            }
+
+             searchInput.addEventListener('input', filterDictionary);
+             dictionaryList.addEventListener('click', showDescription);
+        });
+    </script>
+</body>
+</html>

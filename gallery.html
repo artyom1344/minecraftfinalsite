@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея Minecraft</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="site-container">
+           <div id="auth-form" class="auth-form">
+            <div class="auth-content">
+                <h2>Авторизация</h2>
+                <form id="login-form" novalidate>
+                    <label for="username">Логин (от 4 до 10 символов, только русские буквы и цифры):</label>
+                    <input type="text" id="username-login" name="username" required />
+                    <p id="username-error-login" style="color: red;"></p>
+
+                    <label for="dob">Дата рождения (не раньше 1950 года):</label>
+                    <input type="date" id="dob-login" name="dob" required />
+                    <p id="dob-error-login" style="color: red;"></p>
+
+                    <label for="gender">Пол:</label>
+                    <select id="gender-login" name="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                    <p id="gender-error-login" style="color: red;"></p>
+
+                    <button type="submit">Войти</button>
+                      <p id="form-error-login" style="color: red;"></p>
+                </form>
+                 <button id="show-register-btn">Регистрация</button>
+            </div>
+        </div>
+        <div id="register-form" class="register-form" style="display: none;">
+          <div class="auth-content">
+                <h2>Регистрация</h2>
+                <form id="register-new-form" novalidate>
+                    <label for="username">Логин (от 4 до 10 символов, только русские буквы и цифры):</label>
+                    <input type="text" id="username" name="username" required />
+                    <p id="username-error" style="color: red;"></p>
+
+                    <label for="dob">Дата рождения (не раньше 1950 года):</label>
+                    <input type="date" id="dob" name="dob" required />
+                    <p id="dob-error" style="color: red;"></p>
+
+                    <label for="gender">Пол:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                    <p id="gender-error" style="color: red;"></p>
+
+                    <button type="submit">Зарегистрироваться</button>
+                      <p id="form-error" style="color: red;"></p>
+                </form>
+            </div>
+       </div>
+         <div id="content" style="display: none;">
+            <header>
+                 <img src="img/2f4faf60efdbbb3977128fb43ea44986.jpg" alt="Логотип Крипера" class="site-logo">
+                   <div class="header-text">
+                    <h1>Галерея Minecraft</h1>
+                     <p id="welcome-message" style="display: none; font-size: 14px; margin-top: 0px">Привет, <span id="user-name-display"></span>!</p>
+                </div>
+                 <div class="nav-background">
+                    <nav>
+                         <ul>
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="dictionary.html">Словарь</a></li>
+                            <li><a href="description.html">Описание</a></li>
+                            <li><a href="test.html">Тест</a></li>
+                            <li><a href="profile.html">Личный кабинет</a></li>
+                            <li><a href="gallery.html" class="active">Галерея</a></li>
+                         </ul>
+                     </nav>
+                 </div>
+                 <div id="logout-btn" style="display: none;">
+                     <button onclick="logout()">Выход</button>
+                </div>
+            </header>
+            <main>
+              <div class="gallery-container">
+                <div class="slider">
+                  <div class="slides">
+                        <div class="slide">
+                           <img src="img/gallery1.jpg" alt="minecraft-1" loading="lazy">
+                           <div class="caption">Картинка 1</div>
+                         </div>
+                        <div class="slide">
+                            <img src="img/gallery2.jpg" alt="minecraft-2" loading="lazy">
+                            <div class="caption">Картинка 2</div>
+                         </div>
+                        <div class="slide">
+                            <img src="img/gallery3.jpg" alt="minecraft-3" loading="lazy">
+                             <div class="caption">Картинка 3</div>
+                        </div>
+                       <div class="slide">
+                           <img src="img/gallery4.jpg" alt="minecraft-4" loading="lazy">
+                           <div class="caption">Картинка 4</div>
+                        </div>
+                        <div class="slide">
+                            <img src="img/gallery5.jpg" alt="minecraft-5" loading="lazy">
+                           <div class="caption">Картинка 5</div>
+                       </div>
+                   </div>
+                   <button class="prev" onclick="changeSlide(-1)" id="prev-btn">&#10094;</button>
+                   <button class="next" onclick="changeSlide(1)" id="next-btn">&#10095;</button>
+                 </div>
+                  <div class="slide-info">
+                    <span id="current-slide">1</span> / <span id="total-slides">5</span>
+                  </div>
+               </div>
+             </main>
+            <footer>
+                <div class="footer-content">
+                    <div class="contact-info">
+                        <h3>Контактные данные</h3>
+                         <p>Телефон: <a href="#">+7 (000) 000-00-00</a></p>
+                        <div class="social-links">
+                           <a href="#" target="_blank">ВКонтакте</a>
+                          <a href="#" target="_blank">Telegram</a>
+                       </div>
+                   </div>
+                   <div class="copyright">
+                      <p>&copy; 2024 Сайт Minecraft</p>
+                    </div>
+                </div>
+            </footer>
+         </div>
+    </div>
+     <script>
+         let currentSlide = 0;
+         const slides = document.querySelector('.slides');
+          const slideCount = document.querySelectorAll('.slide').length;
+          const currentSlideDisplay = document.getElementById('current-slide');
+        const totalSlidesDisplay = document.getElementById('total-slides');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        totalSlidesDisplay.textContent = slideCount;
+        updateButtons();
+          function changeSlide(n) {
+            currentSlide += n;
+            if(currentSlide < 0) {
+               currentSlide = 0;
+            }
+            else if (currentSlide >= slideCount) {
+                currentSlide = slideCount - 1;
+            }
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            currentSlideDisplay.textContent = currentSlide + 1;
+            updateButtons();
+        }
+
+       function updateButtons() {
+            if(currentSlide === 0) {
+                prevBtn.disabled = true;
+            }
+             else {
+               prevBtn.disabled = false;
+            }
+            if (currentSlide === slideCount - 1) {
+                nextBtn.disabled = true;
+            }
+            else{
+                nextBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

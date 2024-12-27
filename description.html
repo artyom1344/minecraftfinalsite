@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Описание Minecraft</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <div class="site-container">
+          <div id="auth-form" class="auth-form">
+            <div class="auth-content">
+                <h2>Авторизация</h2>
+                <form id="login-form" novalidate>
+                    <label for="username">Логин (от 4 до 10 символов, только русские буквы и цифры):</label>
+                    <input type="text" id="username-login" name="username" required />
+                    <p id="username-error-login" style="color: red;"></p>
+
+                    <label for="dob">Дата рождения (не раньше 1950 года):</label>
+                    <input type="date" id="dob-login" name="dob" required />
+                    <p id="dob-error-login" style="color: red;"></p>
+
+                    <label for="gender">Пол:</label>
+                    <select id="gender-login" name="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                    <p id="gender-error-login" style="color: red;"></p>
+
+                    <button type="submit">Войти</button>
+                      <p id="form-error-login" style="color: red;"></p>
+                </form>
+                 <button id="show-register-btn">Регистрация</button>
+            </div>
+        </div>
+           <div id="register-form" class="register-form" style="display: none;">
+          <div class="auth-content">
+                <h2>Регистрация</h2>
+                <form id="register-new-form" novalidate>
+                    <label for="username">Логин (от 4 до 10 символов, только русские буквы и цифры):</label>
+                    <input type="text" id="username" name="username" required />
+                    <p id="username-error" style="color: red;"></p>
+
+                    <label for="dob">Дата рождения (не раньше 1950 года):</label>
+                    <input type="date" id="dob" name="dob" required />
+                    <p id="dob-error" style="color: red;"></p>
+
+                    <label for="gender">Пол:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                    <p id="gender-error" style="color: red;"></p>
+
+                    <button type="submit">Зарегистрироваться</button>
+                      <p id="form-error" style="color: red;"></p>
+                </form>
+            </div>
+       </div>
+        <!-- Контент сайта, который будет скрыт до регистрации -->
+        <div id="content" style="display: none;">
+            <header>
+                <img src="img/2f4faf60efdbbb3977128fb43ea44986.jpg" alt="Логотип Крипера" class="site-logo">
+                  <div class="header-text">
+                    <h1>Описание Minecraft</h1>
+                     <p id="welcome-message" style="display: none; font-size: 14px; margin-top: 0px">Привет, <span id="user-name-display"></span>!</p>
+                </div>
+                <div class="nav-background">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="dictionary.html">Словарь</a></li>
+                            <li><a href="description.html" class="active">Описание</a></li>
+                            <li><a href="test.html">Тест</a></li>
+                            <li><a href="profile.html">Личный кабинет</a></li>
+                            <li><a href="gallery.html">Галерея</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                 <div id="logout-btn" style="display: none;">
+                   <button onclick="logout()">Выход</button>
+               </div>
+            </header>
+
+            <main>
+                <h2>Minecraft — это популярная видеоигра</h2>
+                <p>Игроки могут строить и исследовать мир, создавать различные предметы, выживать в условиях приключений. В Minecraft используются блоки для создания построек, а игроки могут собирать ресурсы и строить дома.</p>
+
+                <p>Однако, Minecraft — это не только выживание. В режиме <b>"Креатив"</b> игроки могут дать волю своей фантазии и строить самые разнообразные конструкции. Это могут быть красивые дома, гигантские механизмы, сложные технические устройства и даже целые города. Некоторые игроки умудряются создавать впечатляющие архитектурные сооружения, демонстрируя свой талант и мастерство.</p>
+
+                <p>Кроме того, Minecraft предлагает широкие возможности для кастомизации игры с помощью модов. Существуют моды, которые добавляют новую мебель, изменяют графику, вводят новые предметы и механизмы, что позволяет игрокам украсить и разнообразить свой игровой опыт. Вы можете создать игру под свой вкус и предпочтения.</p>
+                   <p>Также, для более комфортной игры, существует множество модов-оптимизаторов, которые значительно повышают частоту кадров (FPS) и оптимизируют работу игры, что позволяет с комфортом играть с друзьями даже на не самых мощных компьютерах.
+                </p>
+                 <p>Помимо этого, вы можете погрузиться в захватывающие приключения на сюжетных картах, где вас ждут интересные истории, уникальные персонажи и увлекательные задания, которые можно проходить с друзьями, получая еще больше удовольствия от игры.
+                </p>
+                 <p>Также существует огромное количество карт, созданных другими игроками, где вы можете проверить свои навыки паркура и соревноваться с друзьями.  Паркур-карты в Minecraft - это не только вызов вашим умениям, но и возможность весело провести время в компании друзей.
+                </p>
+                <p>
+                    В Minecraft также можно построить порталы в другие измерения, такие как <b>Ад</b> и <b>Энд</b>. В Аду вас ждут опасные монстры и уникальные ресурсы, а в Энде вы сможете сразиться с могущественным <b>Эндер-драконом</b>, победа над которым считается финалом игры.
+                </p>
+            </main>
+           <footer>
+                <div class="footer-content">
+                    <div class="contact-info">
+                        <h3>Контактные данные</h3>
+                        <p>Телефон: <a href="#">+7 (000) 000-00-00</a></p>
+                        <div class="social-links">
+                            <a href="#" target="_blank">ВКонтакте</a>
+                            <a href="#" target="_blank">Telegram</a>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>&copy; 2024 Сайт Minecraft</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

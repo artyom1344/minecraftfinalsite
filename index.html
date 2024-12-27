@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <div class="site-container">
+        <div id="auth-form" class="auth-form">
+            <div class="auth-content">
+                <h2>Авторизация</h2>
+                <form id="login-form" novalidate>
+                    <label for="username">Логин (от 4 до 10 символов, только русские буквы и цифры):</label>
+                    <input type="text" id="username-login" name="username" required />
+                    <p id="username-error-login" style="color: red;"></p>
+
+                    <label for="dob">Дата рождения (не раньше 1950 года):</label>
+                    <input type="date" id="dob-login" name="dob" required />
+                    <p id="dob-error-login" style="color: red;"></p>
+
+                    <label for="gender">Пол:</label>
+                    <select id="gender-login" name="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                    <p id="gender-error-login" style="color: red;"></p>
+
+                    <button type="submit">Войти</button>
+                      <p id="form-error-login" style="color: red;"></p>
+                </form>
+                 <button id="show-register-btn">Регистрация</button>
+            </div>
+        </div>
+        <div id="register-form" class="register-form" style="display: none;">
+          <div class="auth-content">
+                <h2>Регистрация</h2>
+                <form id="register-new-form" novalidate>
+                    <label for="username">Логин (от 4 до 10 символов, только русские буквы и цифры):</label>
+                    <input type="text" id="username" name="username" required />
+                    <p id="username-error" style="color: red;"></p>
+
+                    <label for="dob">Дата рождения (не раньше 1950 года):</label>
+                    <input type="date" id="dob" name="dob" required />
+                    <p id="dob-error" style="color: red;"></p>
+
+                    <label for="gender">Пол:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                    <p id="gender-error" style="color: red;"></p>
+
+                    <button type="submit">Зарегистрироваться</button>
+                      <p id="form-error" style="color: red;"></p>
+                </form>
+            </div>
+       </div>
+         <div id="content" style="display: none;">
+            <header>
+                <img src="img/2f4faf60efdbbb3977128fb43ea44986.jpg" alt="Логотип Крипера" class="site-logo">
+                  <div class="header-text">
+                    <h1>Добро пожаловать на сайт Minecraft!</h1>
+                    <p id="welcome-message" style="display: none; font-size: 14px; margin-top: 0px">Привет, <span id="user-name-display"></span>!</p>
+                </div>
+                <div class="nav-background">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html" class="active">Главная</a></li>
+                            <li><a href="dictionary.html">Словарь</a></li>
+                            <li><a href="description.html">Описание</a></li>
+                            <li><a href="test.html">Тест</a></li>
+                            <li><a href="profile.html">Личный кабинет</a></li>
+                            <li><a href="gallery.html">Галерея</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                 <div id="logout-btn" style="display: none;">
+                   <button onclick="logout()">Выход</button>
+                </div>
+            </header>
+            <main>
+                <h2>Добро пожаловать в мир Minecraft!</h2>
+
+                <p>Minecraft — это песочница, открывающая безграничные возможности для творчества и приключений. Вы можете создавать потрясающие постройки, от простых домов до огромных замков и городов. Собирайте ресурсы, сражайтесь с монстрами, исследуйте огромные миры и делитесь своими творениями с друзьями.</p>
+
+                <p>На нашем сайте вы найдете всё, что вам нужно для погружения в мир Minecraft. Подробное описание игры, словарь терминов, увлекательные тесты, а также возможность создавать и сохранять свой игровой опыт в личном кабинете. Мы собрали лучшие ресурсы и советы, чтобы помочь вам раскрыть весь потенциал этой легендарной игры.</p>
+
+                <p>Загляните в наш словарь, чтобы узнать значения сложных терминов и понятий. Ознакомьтесь с описанием игры, чтобы понять все особенности и режимы игры. Пройдите увлекательные тесты, чтобы проверить свои знания о Minecraft.</p>
+
+                <p>Почувствуйте себя настоящим архитектором, дизайнером, или исследователем! Minecraft - это игра для всех, кто хочет создавать, исследовать, и взаимодействовать с окружающим миром. Не упустите возможность окунуться в этот замечательный мир!</p>
+            </main>
+            <footer>
+                <div class="footer-content">
+                    <div class="contact-info">
+                        <h3>Контактные данные</h3>
+                        <p>Телефон: <a href="#">+7 (000) 000-00-00</a></p>
+                        <div class="social-links">
+                            <a href="#" target="_blank">ВКонтакте</a>
+                            <a href="#" target="_blank">Telegram</a>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>&copy; 2024 Сайт Minecraft</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,531 @@
+/* Объявление CSS-переменных для путей к изображениям */
+:root {
+  --background-image: url('img/b07d48dd9db720b67781aab73fee0d7f.png');
+  /* Задний фон для всего сайта*/
+  --header-footer-image: url('img/minecraft-background.jpg');
+  /* Задний фон для header и footer*/
+}
+
+/* Общие стили */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  /* ===== ЗАДНИЙ ФОН ДЛЯ ВСЕГО САЙТА ===== */
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* ===== КОНЕЦ ЗАДНЕГО ФОНА ДЛЯ ВСЕГО САЙТА ===== */
+  color: #222;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 200px;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+.site-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+/* Стили для header */
+header {
+  position: relative;
+  /* ===== ФОН ДЛЯ ШАПКИ САЙТА ===== */
+  background-image: var(--header-footer-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* ===== КОНЕЦ ФОНА ДЛЯ ШАПКИ САЙТА ===== */
+  color: #fff;
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+header > * {
+  z-index: 1;
+  position: relative;
+}
+.header-text{
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+/* Стили для логотипа */
+.site-logo {
+position: absolute;
+top: 10px;
+left: 10px;
+width: 40px;
+height: 40px;
+border-radius: 5px;
+z-index: 1;
+}
+
+/* Стили для навигации */
+.nav-background {
+background-color: rgba(0, 0, 0, 0.5);
+padding: 10px 0;
+margin-top: 10px;
+}
+
+nav ul {
+list-style: none;
+padding: 0;
+margin: 10px 0 0 0;
+display: flex;
+justify-content: center;
+}
+
+nav ul li {
+margin: 0 10px;
+}
+
+nav ul li a {
+text-decoration: none;
+color: #fff;
+font-weight: bold;
+padding: 8px 12px;
+border-radius: 4px;
+transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+background-color: rgba(255, 255, 255, 0.2);
+}
+
+nav ul li a.active {
+color: #000;
+}
+
+/* Стили для main */
+main {
+max-width: 900px;
+margin: 20px auto;
+padding: 20px;
+background-color: #f0f0f0;
+border-radius: 8px;
+box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  flex: 1;
+}
+
+main h2 {
+margin-top: 0;
+color: #222;
+}
+
+main p {
+color: #444;
+}
+
+/* Стили для модального окна */
+.modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.3);
+justify-content: center;
+align-items: center;
+z-index: 100;
+}
+
+.modal-content {
+background-color: #f0f0f0;
+padding: 30px;
+border-radius: 8px;
+text-align: center;
+width: 350px;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+input,
+select {
+padding: 10px;
+margin: 8px 0;
+width: calc(100% - 20px);
+box-sizing: border-box;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+button {
+padding: 10px 20px;
+background-color: #999;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+button:hover {
+background-color: #777;
+}
+
+/* Стили для галереи */
+.gallery-container {
+width: 80%;
+max-width: 800px;
+margin: 30px auto;
+position: relative;
+overflow: hidden;
+border-radius: 8px;
+box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.slider {
+position: relative;
+overflow: hidden;
+}
+
+.slides {
+display: flex;
+transition: transform 0.6s ease;
+}
+
+.slide {
+min-width: 100%;
+text-align: center;
+position: relative;
+  height: 500px;
+overflow: hidden;
+}
+
+.slide img {
+width: 100%;
+  height: 500px;
+object-fit: cover;
+border-radius: 8px 8px 0 0;
+}
+
+.caption {
+font-size: 18px;
+color: white;
+background-color: rgba(0, 0, 0, 0.6);
+padding: 8px;
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+font-weight: bold;
+border-radius: 0 0 8px 8px;
+}
+
+button.prev,
+button.next {
+position: absolute;
+top: 50%;
+background-color: rgba(0, 0, 0, 0.4);
+color: white;
+border: none;
+padding: 10px;
+cursor: pointer;
+font-size: 18px;
+z-index: 10;
+transition: background-color 0.3s ease;
+}
+
+button.prev {
+left: 10px;
+transform: translateY(-50%);
+}
+
+button.next {
+right: 10px;
+transform: translateY(-50%);
+}
+
+button:focus {
+outline: none;
+}
+
+button.prev:hover,
+button.next:hover {
+background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Стили для информации о слайде */
+.slide-info {
+text-align: center;
+margin-top: 10px;
+font-size: 14px;
+font-weight: bold;
+color: #444;
+}
+
+/* Стиль для кнопок вперед и назад */
+button.prev,
+button.next {
+font-size: 20px;
+padding: 12px;
+}
+
+/* Респонсивность для мобильных устройств */
+@media (max-width: 768px) {
+.gallery-container {
+    width: 100%;
+}
+
+.caption {
+    font-size: 14px;
+}
+
+.slide-info {
+    font-size: 12px;
+}
+
+main {
+    padding: 15px;
+}
+
+.modal-content {
+    width: 90%;
+    padding: 20px;
+}
+
+nav ul {
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 8px 0;
+}
+}
+
+/* Минималистичный стиль для кнопки */
+.minimal-button {
+display: inline-block;
+padding: 8px 16px;
+text-decoration: none;
+color: #444;
+background-color: #e0e0e0;
+border: 1px solid #ccc;
+border-radius: 4px;
+transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+cursor: pointer;
+margin-top: 10px;
+}
+
+.minimal-button:hover {
+background-color: #d0d0d0;
+color: #222;
+border-color: #b0b0b0;
+}
+
+/* Стили для footer */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* ===== ФОН ДЛЯ ПОДВАЛА САЙТА ===== */
+  background-image: var(--header-footer-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* ===== КОНЕЦ ФОНА ДЛЯ ПОДВАЛА САЙТА ===== */
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  margin-top: auto;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+footer > * {
+  z-index: 1;
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+.contact-info h3 {
+margin-bottom: 5px;
+font-size: 1.2em;
+}
+
+.social-links a {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.copyright {
+  font-size: 0.9em;
+}
+/* Для выравнивания радиокнопок */
+.question span {
+display: inline-block; /* Делаем span строчно-блочным */
+margin-right: 15px; /* Отступ между ответами */
+margin-bottom: 5px; /* Отступ снизу */
+}
+
+.question p {
+margin-bottom: 5px;
+/* Отступ снизу */
+}
+#content {
+  flex: 1;
+  overflow-y: auto;
+}
+.result-message{
+margin-top: 5px;
+}
+
+/* Стили для формы авторизации */
+.auth-form {
+display: flex;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.3);
+justify-content: center;
+align-items: center;
+z-index: 100;
+}
+
+.auth-content {
+background-color: #f0f0f0;
+padding: 30px;
+border-radius: 8px;
+text-align: center;
+width: 350px;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#auth-form input,
+#auth-form select {
+padding: 10px;
+margin: 8px 0;
+width: calc(100% - 20px);
+box-sizing: border-box;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+#auth-form button {
+padding: 10px 20px;
+background-color: #999;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+margin: 10px 0 0 0;
+}
+#show-register-btn {
+  margin: 5px 0 0 0;
+   padding: 10px 20px;
+background-color: #999;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+#auth-form button:hover,
+#show-register-btn:hover{
+background-color: #777;
+}
+
+/* Стили для формы регистрации */
+.register-form {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.3);
+justify-content: center;
+align-items: center;
+z-index: 100;
+}
+#register-form input,
+#register-form select {
+padding: 10px;
+margin: 8px 0;
+width: calc(100% - 20px);
+box-sizing: border-box;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+#register-form button {
+padding: 10px 20px;
+background-color: #999;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+margin: 10px 0 0 0;
+}

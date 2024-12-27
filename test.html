@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест Minecraft</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <div class="site-container">
+        <div id="auth-form" class="auth-form">
+            <div class="auth-content">
+                <h2>Авторизация</h2>
+                <form id="login-form" novalidate>
+                    <label for="username">Логин (от 4 до 10 символов, только русские буквы и цифры):</label>
+                    <input type="text" id="username-login" name="username" required />
+                    <p id="username-error-login" style="color: red;"></p>
+
+                    <label for="dob">Дата рождения (не раньше 1950 года):</label>
+                    <input type="date" id="dob-login" name="dob" required />
+                    <p id="dob-error-login" style="color: red;"></p>
+
+                    <label for="gender">Пол:</label>
+                    <select id="gender-login" name="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                    <p id="gender-error-login" style="color: red;"></p>
+
+                    <button type="submit">Войти</button>
+                    <p id="form-error-login" style="color: red;"></p>
+                </form>
+                <button id="show-register-btn">Регистрация</button>
+            </div>
+        </div>
+        <div id="register-form" class="register-form" style="display: none;">
+            <div class="auth-content">
+                <h2>Регистрация</h2>
+                <form id="register-new-form" novalidate>
+                    <label for="username">Логин (от 4 до 10 символов, только русские буквы и цифры):</label>
+                    <input type="text" id="username" name="username" required />
+                    <p id="username-error" style="color: red;"></p>
+
+                    <label for="dob">Дата рождения (не раньше 1950 года):</label>
+                    <input type="date" id="dob" name="dob" required />
+                    <p id="dob-error" style="color: red;"></p>
+
+                    <label for="gender">Пол:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                    <p id="gender-error" style="color: red;"></p>
+
+                    <button type="submit">Зарегистрироваться</button>
+                    <p id="form-error" style="color: red;"></p>
+                </form>
+            </div>
+        </div>
+        <div id="content" style="display: none;">
+            <header>
+                <img src="img/2f4faf60efdbbb3977128fb43ea44986.jpg" alt="Логотип Крипера" class="site-logo">
+                <div class="header-text">
+                    <h1>Тест по Minecraft</h1>
+                    <p id="welcome-message" style="display: none; font-size: 14px; margin-top: 0px">Привет, <span id="user-name-display"></span>!</p>
+                </div>
+                <div class="nav-background">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="dictionary.html">Словарь</a></li>
+                            <li><a href="description.html">Описание</a></li>
+                            <li><a href="test.html" class="active">Тест</a></li>
+                            <li><a href="profile.html">Личный кабинет</a></li>
+                            <li><a href="gallery.html">Галерея</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div id="logout-btn" style="display: none;">
+                    <button onclick="logout()">Выход</button>
+                </div>
+            </header>
+
+            <main>
+                <form id="quiz-form">
+                    <!-- Вопрос 1 -->
+                    <div class="question">
+                        <p>1. Из чего делают верстак?</p>
+                        <span><input type="radio" name="q1" value="a"> Дерево</span>
+                        <span><input type="radio" name="q1" value="b"> Камень</span>
+                        <span><input type="radio" name="q1" value="c"> Железо</span>
+                        <p id="q1-result" class="result-message"></p>
+                    </div>
+                    <!-- Вопрос 2 -->
+                    <div class="question">
+                        <p>2. Каким инструментом копают землю?</p>
+                        <span><input type="radio" name="q2" value="a"> Кирка</span>
+                        <span><input type="radio" name="q2" value="b"> Лопата</span>
+                        <span><input type="radio" name="q2" value="c"> Топор</span>
+                        <p id="q2-result" class="result-message"></p>
+                    </div>
+                    <!-- Вопрос 3 -->
+                    <div class="question">
+                        <p>3. Как называется маленький зеленый взрывной моб?</p>
+                        <input type="text" name="q3" placeholder="Введите ответ">
+                        <p id="q3-result" class="result-message"></p>
+                    </div>
+                    <!-- Вопрос 4 -->
+                    <div class="question">
+                        <p>4. Что ест свинья?</p>
+                        <input type="text" name="q4" placeholder="Введите ответ">
+                        <p id="q4-result" class="result-message"></p>
+                    </div>
+                    <!-- Вопрос 5 -->
+                    <div class="question">
+                        <p>5. Алмазы можно найти в?</p>
+                        <span><input type="radio" name="q5" value="a">небе</span>
+                        <span><input type="radio" name="q5" value="b">пещерах</span>
+                        <span><input type="radio" name="q5" value="c">энде</span>
+                        <p id="q5-result" class="result-message"></p>
+                    </div>
+                    <!-- Вопрос 6 -->
+                    <div class="question">
+                        <p>6. Какое дерево растет в аду?</p>
+                        <span><input type="radio" name="q6" value="a"> Ель</span>
+                        <span><input type="radio" name="q6" value="b"> Береза</span>
+                        <span><input type="radio" name="q6" value="c"> Багровое дерево</span>
+                        <p id="q6-result" class="result-message"></p>
+                    </div>
+                    <button type="submit">Проверить результаты</button>
+                </form>
+                <div id="result-message"></div>
+                  <button id="restart-button" style="display: none;">Пройти тест заново</button>
+            </main>
+            <footer>
+                <div class="footer-content">
+                    <div class="contact-info">
+                        <h3>Контактные данные</h3>
+                        <p>Телефон: <a href="#">+7 (000) 000-00-00</a></p>
+                        <div class="social-links">
+                            <a href="#" target="_blank">ВКонтакте</a>
+                            <a href="#" target="_blank">Telegram</a>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>&copy; 2024 Сайт Minecraft</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
